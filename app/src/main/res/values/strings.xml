@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Expense Tracker</string>
+    <string name="view_all">VIEW ALL</string>
+    <string name="add_expense">ADD EXPENSE</string>
+    <string name="delete_expense">DELETE EXPENSE</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
