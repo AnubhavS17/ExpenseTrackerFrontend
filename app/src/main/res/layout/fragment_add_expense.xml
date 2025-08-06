@@ -1,15 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddExpense">
+    android:background="#121212"
+    android:padding="20dp">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="@string/add_expense" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center">
 
-</FrameLayout>
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ADD EXPENSE"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="24dp"
+            android:padding="10dp"/>
+
+        <!-- Expense Name -->
+        <EditText
+            android:id="@+id/etExpenseName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Expense Name"
+            android:background="@drawable/edit_text_bg_sahpe"
+            android:padding="16dp"
+            android:textColor="#000000"
+            android:textColorHint="#898282"
+            android:layout_marginBottom="16dp"
+            android:inputType="text"
+            />
+
+        <!-- Expense Category -->
+        <EditText
+            android:id="@+id/etExpenseCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Category"
+            android:background="@drawable/edit_text_bg_sahpe"
+            android:padding="16dp"
+            android:textColor="#000000"
+            android:textColorHint="#898282"
+            android:layout_marginBottom="16dp"
+            android:inputType="text" />
+
+        <!-- Expense Amount -->
+        <EditText
+            android:id="@+id/etExpenseAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Amount"
+            android:background="@drawable/edit_text_bg_sahpe"
+            android:padding="16dp"
+            android:textColor="#000000"
+            android:textColorHint="#898282"
+            android:layout_marginBottom="24dp"
+            android:inputType="numberDecimal" />
+
+        <!-- Add Expense Button -->
+        <Button
+            android:id="@+id/btnAddExpense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Expense"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#3F51B5"
+            android:padding="16dp"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</ScrollView>

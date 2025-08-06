@@ -15,5 +15,4 @@ object RetroFitClient {
             .create(ExpenseApi::class.java)
     }
 
-
 }
