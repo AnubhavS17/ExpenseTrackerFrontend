@@ -17,6 +17,10 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -47,7 +51,10 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.3")
+    implementation(libs.kotlinx.coroutines.core.v1102)
+    implementation(libs.kotlinx.coroutines.android.v163)
+    implementation (libs.androidx.lifecycle.livedata.ktx) // Or the latest stable version
+    implementation (libs.androidx.lifecycle.viewmodel.ktx) // For ViewModel integration
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.9.2") // For lifecycle scope
 //    implementation(libs.material)
 }
