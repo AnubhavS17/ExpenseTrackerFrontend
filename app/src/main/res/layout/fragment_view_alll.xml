@@ -5,6 +5,14 @@
     android:layout_height="match_parent"
     tools:context=".ViewAlll">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/back"
+        android:scaleType="centerCrop"
+        android:alpha="0.6">
+    </ImageView>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

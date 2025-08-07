@@ -52,7 +52,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setFragment(fragment:Fragment){
-        supportFragmentManager.beginTransaction().apply {
+        supportFragmentManager.beginTransaction().setCustomAnimations( R.anim.fade_in,  // Enter animation
+            R.anim.fade_out, // Exit animation
+            R.anim.fade_in,  // Pop enter
+            R.anim.fade_out).apply {
             replace(R.id.f1fragment,fragment).commit()
         }
     }

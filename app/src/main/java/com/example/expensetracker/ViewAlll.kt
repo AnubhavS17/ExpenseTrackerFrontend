@@ -34,7 +34,7 @@ class ViewAlll : Fragment() {
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.viewRecycleView)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        adapter = MyAdapter(emptyList())
+        adapter = MyAdapter(mutableListOf())
         recyclerView.adapter = adapter
 //        Log.i("Information","Before viewmodel call")
 
@@ -46,7 +46,7 @@ class ViewAlll : Fragment() {
             // update RecyclerView adapter here
             adapter.updateData(expenses)
 //            Log.i("VALUE FORM API","${expenses[1]}")
-            println("${expenses[1]}")
+//            println("${expenses[1]}")
 
         }
 

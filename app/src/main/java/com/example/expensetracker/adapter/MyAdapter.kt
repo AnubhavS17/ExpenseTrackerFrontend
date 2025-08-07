@@ -9,7 +9,7 @@ import com.example.expensetracker.R
 import com.example.expensetracker.databinding.ExpenseLayoutBinding
 
 
-class MyAdapter(private var expense:List<Expense>):RecyclerView.Adapter<MyAdapter.MainViewHolder>(){
+class MyAdapter(private var expense:MutableList<Expense>):RecyclerView.Adapter<MyAdapter.MainViewHolder>(){
     class MainViewHolder(val binding: ExpenseLayoutBinding):RecyclerView.ViewHolder(binding.root) {
 
     }
@@ -31,8 +31,16 @@ class MyAdapter(private var expense:List<Expense>):RecyclerView.Adapter<MyAdapte
     }
 
     fun updateData(newList: List<Expense>) {
-        expense = newList
+        expense = newList.toMutableList()
         notifyDataSetChanged()
     }
+    fun removeAt(position: Int) {
+        expense.removeAt(position)
+        notifyItemRemoved(position)
+    }
+    fun getExpenseAt(position: Int): Expense {
+        return expense[position]
+    }
+
 
 }

@@ -1,6 +1,8 @@
 package com.example.expensetracker.viewmodel
 
+import android.util.Log
 import android.widget.Toast
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -9,6 +11,7 @@ import com.example.expensetracker.Entity.ExpenseRespose
 import com.example.expensetracker.Entity.PostExpense
 import com.example.expensetracker.api.RetroFitClient
 import com.example.expensetracker.repository.Repository
+import com.example.expensetracker.response.deleteRespose
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -29,7 +32,13 @@ class ExpenseViewModel(private val repository: Repository): ViewModel() {
                     repository.getExpenses()
 //                    RetroFitClient.retrofitInstance.allExpenses()
                 }
-                expenseList.postValue(response)
+                if(response.isSuccessful){
+                    val body=response.body()
+                    if(body != null){
+                        expenseList.postValue(body?:null)
+                    }
+                }
+
             } catch (e: Exception) {
                 errorMessage.postValue(e.message)
             }
@@ -61,6 +70,37 @@ class ExpenseViewModel(private val repository: Repository): ViewModel() {
             }
         }
     }
+
+
+    val deleteResponse=MutableLiveData<String>()
+    fun deleteExpense(name:String){
+
+        viewModelScope.launch {
+            try{
+                val response= withContext(Dispatchers.IO){
+                    repository.deleteExpense(name)
+                }
+                if (response.isSuccessful){
+                    val body = response.body()
+                    if (body != null) {
+                        deleteResponse.postValue(body.message?: "Added successfully!")
+                    } else {
+                        errorMessage.postValue("Empty response from server")
+                    }
+                }
+                else{
+                    errorMessage.postValue("Error: ${response.code()} ${response.message()}")
+                }
+
+            }catch (e:Exception){
+                errorMessage.postValue(e.message)
+            }
+        }
+    }
+
+
+
+
 }
 
 
