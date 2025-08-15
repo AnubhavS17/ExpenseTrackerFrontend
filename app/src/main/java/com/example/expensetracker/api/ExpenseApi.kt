@@ -15,11 +15,11 @@ import retrofit2.http.Path
 
 interface ExpenseApi {
 
-    @GET("get")
-     suspend fun allExpenses(): Response<List<Expense>>
+    @GET("get/{username}")
+     suspend fun allExpenses(@Path("username") username:String): Response<List<Expense>>
 
-     @POST("add")
-     suspend fun addExpense(@Body expense: PostExpense):Response<ExpenseRespose>
+     @POST("add/{username}")
+     suspend fun addExpense(@Path("username") username: String,@Body expense: PostExpense):Response<ExpenseRespose>
 
      @DELETE("delete/{name}")
      suspend fun deleteExpense(@Path("name")name:String):Response<deleteRespose>

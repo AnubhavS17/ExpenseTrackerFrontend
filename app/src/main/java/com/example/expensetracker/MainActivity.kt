@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import com.example.expensetracker.ui.AddExpense
+import com.example.expensetracker.ui.DeleteExpense
+import com.example.expensetracker.ui.ViewAlll
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -21,9 +24,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         val bottomNavigationView:BottomNavigationView=findViewById(R.id.bottomNavigationView)
-        val viewFragment=ViewAlll()
-        val addFragment=AddExpense()
-        val deleteFragment=DeleteExpense()
+        val viewFragment= ViewAlll()
+        val addFragment= AddExpense()
+        val deleteFragment= DeleteExpense()
 
         setFragment(viewFragment)
         bottomNavigationView.setOnItemSelectedListener {

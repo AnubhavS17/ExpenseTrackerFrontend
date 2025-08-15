@@ -1,4 +1,4 @@
-package com.example.expensetracker
+package com.example.expensetracker.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.expensetracker.R
 import com.example.expensetracker.adapter.MyAdapter
 import com.example.expensetracker.repository.Repository
 import com.example.expensetracker.viewmodel.ExpenseViewModel
@@ -28,37 +29,38 @@ class DeleteExpense : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_delete_expense, container, false)
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.deleteRV)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        adapter = MyAdapter(mutableListOf())
-        recyclerView.adapter = adapter
-//        Log.i("Information","Before viewmodel call")
-
-        //initialising view model
-        viewModel = ViewModelProvider(this, ExpenseViewModelFactory(Repository()))
-            .get(ExpenseViewModel::class.java)
-
-        //calling API
-        viewModel.getAllExpenses()
-        viewModel.expenseList.observe(viewLifecycleOwner) { expenses ->
-            // update RecyclerView adapter here
-            adapter.updateData(expenses)
-//            Log.i("VALUE FORM API","${expenses[1]}")
-        }
-
-        //for errors
-        viewModel.errorMessage.observe(viewLifecycleOwner) { error ->
-            Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
-        }
-
-
-
-//        val name:String="WATER BILL"
-//        viewModel.deleteExpense(name)
-//        viewModel.deleteResponse.observe(viewLifecycleOwner){delete->
-//            Toast.makeText(requireContext(),delete,Toast.LENGTH_SHORT).show()
+//        val recyclerView = view.findViewById<RecyclerView>(R.id.deleteRV)
+//        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+//        adapter = MyAdapter(mutableListOf())
+//        recyclerView.adapter = adapter
+////        Log.i("Information","Before viewmodel call")
+//
+//        //initialising view model
+////        viewModel = ViewModelProvider(this, ExpenseViewModelFactory(Repository()))
+////            .get(ExpenseViewModel::class.java)
+////
+////        val username:String="Anubhav17"
+////        //calling API
+////        viewModel.getAllExpenses(username)
+////        viewModel.expenseList.observe(viewLifecycleOwner) { expenses ->
+////            // update RecyclerView adapter here
+////            adapter.updateData(expenses)
+//////            Log.i("VALUE FORM API","${expenses[1]}")
+////        }
+//
+//        //for errors
+//        viewModel.errorMessage.observe(viewLifecycleOwner) { error ->
+//            Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
 //        }
-        enableSwipeToDelete(recyclerView, adapter)
+//
+//
+//
+////        val name:String="WATER BILL"
+////        viewModel.deleteExpense(name)
+////        viewModel.deleteResponse.observe(viewLifecycleOwner){delete->
+////            Toast.makeText(requireContext(),delete,Toast.LENGTH_SHORT).show()
+////        }
+//        enableSwipeToDelete(recyclerView, adapter)
 
 
         return view

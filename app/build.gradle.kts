@@ -56,5 +56,6 @@ dependencies {
     implementation (libs.androidx.lifecycle.livedata.ktx) // Or the latest stable version
     implementation (libs.androidx.lifecycle.viewmodel.ktx) // For ViewModel integration
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.9.2") // For lifecycle scope
+
 //    implementation(libs.material)
 }
