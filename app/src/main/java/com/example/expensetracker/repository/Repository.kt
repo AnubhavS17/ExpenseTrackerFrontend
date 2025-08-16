@@ -13,15 +13,15 @@ import retrofit2.Response
 
 class Repository() {
 
-     suspend fun getExpenses(username:String):Response<List<Expense>>{
-          return RetroFitClient.retrofitInstance.allExpenses(username)
+     suspend fun getExpenses(token:String,username:String):Response<List<Expense>>{
+          return RetroFitClient.retrofitInstance.allExpenses(token,username)
      }
 
-     suspend fun addExpense(username:String,newExpense: PostExpense):Response<ExpenseRespose>{
-          return RetroFitClient.retrofitInstance.addExpense(username,newExpense)
+     suspend fun addExpense(token:String,username:String,newExpense: PostExpense):Response<ExpenseRespose>{
+          return RetroFitClient.retrofitInstance.addExpense(token,username,newExpense)
      }
-     suspend fun deleteExpense(name:String):Response<deleteRespose>{
-          return RetroFitClient.retrofitInstance.deleteExpense(name)
+     suspend fun deleteExpense(token:String,username: String,name:String):Response<deleteRespose>{
+          return RetroFitClient.retrofitInstance.deleteExpense(token,username,name)
      }
 
      suspend fun loginUser(loginData: LoginData):Response<TokenResponse>{

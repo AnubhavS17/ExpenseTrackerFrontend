@@ -9,6 +9,7 @@ import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.Path
 
@@ -16,11 +17,11 @@ import retrofit2.http.Path
 interface ExpenseApi {
 
     @GET("get/{username}")
-     suspend fun allExpenses(@Path("username") username:String): Response<List<Expense>>
+     suspend fun allExpenses(@Header("Authorization") token: String, @Path("username") username:String): Response<List<Expense>>
 
      @POST("add/{username}")
-     suspend fun addExpense(@Path("username") username: String,@Body expense: PostExpense):Response<ExpenseRespose>
+     suspend fun addExpense(@Header("Authorization") token: String, @Path("username") username: String,@Body expense: PostExpense):Response<ExpenseRespose>
 
-     @DELETE("delete/{name}")
-     suspend fun deleteExpense(@Path("name")name:String):Response<deleteRespose>
+     @DELETE("delete/{username}/{name}")
+     suspend fun deleteExpense(@Header("Authorization") token: String, @Path("username")username:String,@Path("name")name:String):Response<deleteRespose>
 }

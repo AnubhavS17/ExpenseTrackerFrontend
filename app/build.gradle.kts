@@ -57,5 +57,9 @@ dependencies {
     implementation (libs.androidx.lifecycle.viewmodel.ktx) // For ViewModel integration
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.9.2") // For lifecycle scope
 
+    //for datastore
+    implementation("androidx.datastore:datastore:1.1.7")
+    implementation ("androidx.datastore:datastore-preferences:1.1.7")
+
 //    implementation(libs.material)
 }

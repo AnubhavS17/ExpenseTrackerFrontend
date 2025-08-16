@@ -1,5 +1,6 @@
 package com.example.expensetracker
 
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,8 @@ import com.example.expensetracker.ui.ViewAlll
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +30,8 @@ class MainActivity : AppCompatActivity() {
         val viewFragment= ViewAlll()
         val addFragment= AddExpense()
         val deleteFragment= DeleteExpense()
+
+
 
         setFragment(viewFragment)
         bottomNavigationView.setOnItemSelectedListener {
